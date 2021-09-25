@@ -12,6 +12,8 @@ $checkpoint_type = "Production"                                    # the type of
 $memory_min = 1MB*512                                              # minimum RAM to be used
 $paging_path = "e:\VMs\$vm_name"                                   # location of the Virtual Machines folder
 $snapshot_path = "e:\VMs\$vm_name"                                 # location of the Snapshot folder
+$iso_path = "e:\os images\rhel-8.4-x86_64-boot.iso"                # location of the rhel boot image
+$controller_number = 1                                             # default IDE controller number
 
 # byte conversions 
 $memory_size = 1GB*$memory_size
@@ -35,3 +37,11 @@ Set-VM -Name $vm_name `
     -MemoryMinimumBytes $memory_min `
     -MemoryMaximumBytes $memory_size `
     -SnapshotFileLocation $snapshot_path
+
+# setting vm dvd drive to automatically use the rhel iso
+Set-VMDvdDrive -VMName $vm_name `
+    -Path $iso_path `
+    -ControllerNumber $controller_number
+
+# starting the vm
+Start-VM -Name $vm_name
