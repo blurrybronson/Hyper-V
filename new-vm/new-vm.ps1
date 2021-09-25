@@ -44,4 +44,5 @@ Set-VMDvdDrive -VMName $vm_name `
     -ControllerNumber $controller_number
 
 # starting the vm
-Start-VM -Name $vm_name
+# adding silently continue flag for the time being. machine starts when the command is executed, but throws an error stating that the required file is in use by another process
+Start-VM -Name $vm_name -ErrorAction SilentlyContinue
