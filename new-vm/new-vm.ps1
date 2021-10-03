@@ -7,12 +7,12 @@ $vhd_size = Read-Host("VHD (GB) ")
 $gen = 1                                                           # generation of the machine: 1 or 2. Gen 2 supports UEFI
 $computer_name = "BRONSON-MAIN"                                    # name of the hyper-v host
 $vhd_path = "e:\VMs\$vm_name\Virtual Hard Disks\$vm_name.VHDX"     # path where the new VHD will be stored
-$switch = "External Switch"                                        # switch to be used by the vm
+$switch = "Default Switch"                                         # switch to be used by the vm
 $checkpoint_type = "Production"                                    # the type of checkpoint to be used
 $memory_min = 1MB*512                                              # minimum RAM to be used
 $paging_path = "e:\VMs\$vm_name"                                   # location of the Virtual Machines folder
 $snapshot_path = "e:\VMs\$vm_name"                                 # location of the Snapshot folder
-$iso_path = "e:\os images\rhel-8.4-x86_64-boot.iso"                # location of the rhel boot image
+$iso_path = "e:\os images\ubuntu-20.04.3.iso"                # location of the rhel boot image
 $controller_number = 1                                             # default IDE controller number
 
 # byte conversions 
