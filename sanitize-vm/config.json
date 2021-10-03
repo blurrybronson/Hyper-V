@@ -1,0 +1,8 @@
+{
+    "settings":[
+        {
+            "machine_name":"Windows-10-Dev",
+            "snapshot_name":"Base System"
+        }
+    ]
+}
