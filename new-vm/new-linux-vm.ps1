@@ -2,6 +2,7 @@
 $vm_name = Read-Host("VM Name ")
 $memory_size = Read-Host("Memory (GB) ")
 $vhd_size = Read-Host("VHD (GB) ")
+$processor_count = Read-Host("CPU Cores ")
 
 # static values
 $gen = 1                                                           # generation of the machine: 1 or 2. Gen 2 supports UEFI
@@ -36,7 +37,8 @@ Set-VM -Name $vm_name `
     -DynamicMemory `
     -MemoryMinimumBytes $memory_min `
     -MemoryMaximumBytes $memory_size `
-    -SnapshotFileLocation $snapshot_path
+    -SnapshotFileLocation $snapshot_path `
+    -ProcessorCount $processor_count
 
 # setting vm dvd drive to automatically use the rhel iso
 Set-VMDvdDrive -VMName $vm_name `
